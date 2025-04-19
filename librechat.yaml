@@ -1,0 +1,314 @@
+# 有关更多信息，请参阅配置指南：
+# https://www.librechat.ai/docs/configuration/librechat_yaml
+
+# 配置版本（必填）
+version: 1.2.1
+
+# 缓存设置：设置为 true 以启用缓存
+cache: true
+
+# 文件存储策略 s3/firebase
+# fileStrategy: "s3"
+
+# 自定义界面配置
+interface:
+  customWelcome: "Welcome to LibreChat! Enjoy your experience."
+  # 隐私政策设置
+  privacyPolicy:
+    externalUrl: 'https://librechat.ai/privacy-policy'
+    openNewTab: true
+
+  # 服务条款
+  termsOfService:
+    externalUrl: 'https://librechat.ai/tos'
+    openNewTab: true
+    modalAcceptance: true
+    modalTitle: "Terms of Service for LibreChat"
+    modalContent: |
+      # Terms and Conditions for LibreChat
+
+      *Effective Date: February 18, 2024*
+
+      Welcome to LibreChat, the informational website for the open-source AI chat platform, available at https://librechat.ai. These Terms of Service ("Terms") govern your use of our website and the services we offer. By accessing or using the Website, you agree to be bound by these Terms and our Privacy Policy, accessible at https://librechat.ai//privacy.
+
+      ## 1. Ownership
+
+      Upon purchasing a package from LibreChat, you are granted the right to download and use the code for accessing an admin panel for LibreChat. While you own the downloaded code, you are expressly prohibited from reselling, redistributing, or otherwise transferring the code to third parties without explicit permission from LibreChat.
+
+      ## 2. User Data
+
+      We collect personal data, such as your name, email address, and payment information, as described in our Privacy Policy. This information is collected to provide and improve our services, process transactions, and communicate with you.
+
+      ## 3. Non-Personal Data Collection
+
+      The Website uses cookies to enhance user experience, analyze site usage, and facilitate certain functionalities. By using the Website, you consent to the use of cookies in accordance with our Privacy Policy.
+
+      ## 4. Use of the Website
+
+      You agree to use the Website only for lawful purposes and in a manner that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the Website. Prohibited behavior includes harassing or causing distress or inconvenience to any person, transmitting obscene or offensive content, or disrupting the normal flow of dialogue within the Website.
+
+      ## 5. Governing Law
+
+      These Terms shall be governed by and construed in accordance with the laws of the United States, without giving effect to any principles of conflicts of law.
+
+      ## 6. Changes to the Terms
+
+      We reserve the right to modify these Terms at any time. We will notify users of any changes by email. Your continued use of the Website after such changes have been notified will constitute your consent to such changes.
+
+      ## 7. Contact Information
+
+      If you have any questions about these Terms, please contact us at contact@librechat.ai.
+
+      By using the Website, you acknowledge that you have read these Terms of Service and agree to be bound by them.
+
+  endpointsMenu: true
+  modelSelect: true
+  parameters: true
+  sidePanel: true
+  presets: true
+  prompts: true
+  bookmarks: true
+  multiConvo: true
+  agents: true
+
+# 注册对象结构示例（可选）
+registration:
+  socialLogins: ['github', 'google', 'discord', 'openid', 'facebook', 'apple']
+  # allowedDomains:
+  # - "gmail.com"
+
+
+# 余额设置示例
+# balance:
+#   enabled: false
+#   startBalance: 20000
+#   autoRefillEnabled: false
+#   refillIntervalValue: 30
+#   refillIntervalUnit: 'days'
+#   refillAmount: 10000
+
+# 语音配置
+# speech:
+#   tts:
+#     openai:
+#       url: ''
+#       apiKey: '${TTS_API_KEY}'
+#       model: ''
+#       voices: ['']
+
+#
+#   stt:
+#     openai:
+#       url: ''
+#       apiKey: '${STT_API_KEY}'
+#       model: ''
+
+# 速率限制
+# rateLimits:
+#   fileUploads:
+#     ipMax: 100
+#     ipWindowInMinutes: 60  # IP的文件上传速率限制窗口
+#     userMax: 50
+#     userWindowInMinutes: 60  # 用户的文件上传速率限制窗口
+#   conversationsImport:
+#     ipMax: 100
+#     ipWindowInMinutes: 60  # IP的对话导入速率限制窗口
+#     userMax: 50
+#     userWindowInMinutes: 60  # 用户的对话导入速率限制窗口
+
+# 操作对象结构示例
+actions:
+  allowedDomains:
+    - "swapi.dev"
+    - "librechat.ai"
+    - "google.com"
+
+# MCP服务器对象结构示例
+# mcpServers:
+#   everything:
+#     # type: sse # 类型可以选择省略
+#     url: http://localhost:3001/sse
+#     timeout: 60000  # 该服务器1分钟超时，这是MCP服务器的默认超时设置。
+#   puppeteer:
+#     type: stdio
+#     command: npx
+#     args:
+#       - -y
+#       - "@modelcontextprotocol/server-puppeteer"
+#     timeout: 300000  # 该服务器5分钟超时
+#   filesystem:
+#     # type: stdio
+#     command: npx
+#     args:
+#       - -y
+#       - "@modelcontextprotocol/server-filesystem"
+#       - /home/user/LibreChat/
+#     iconPath: /home/user/LibreChat/client/public/assets/logo.svg
+#   mcp-obsidian:
+#     command: npx
+#     args:
+#       - -y
+#       - "mcp-obsidian"
+#       - /path/to/obsidian/vault
+
+# 自定义端点定义
+endpoints:
+  # assistants:
+  #   disableBuilder: false # 设置为`true`以禁用助手构建器界面
+  #   pollIntervalMs: 3000  # 检查助手更新的轮询间隔
+  #   timeoutMs: 180000  # 助手操作的超时时间
+  #   # 应该只使用其中一个，要么是`supportedIds`要么是`excludedIds`
+  #   supportedIds: ["asst_supportedAssistantId1", "asst_supportedAssistantId2"]
+  #   # excludedIds: ["asst_excludedAssistantId"]
+  #   # 只显示用户创建的助手或在外部创建的助手（例如在Assistants playground中）。
+  #   # privateAssistants: false # 与`supportedIds`或`excludedIds`不兼容
+  #   # （可选）支持检索的模型，默认为最新已知支持该功能的OpenAI模型
+  #   retrievalModels: ["gpt-4-turbo-preview"]
+  #   # （可选）所有用户可用的助手功能。省略你希望排除的功能。默认为以下列表。
+  #   capabilities: ["code_interpreter", "retrieval", "actions", "tools", "image_vision"]
+  # agents:
+  #   # （可选）代理的默认递归深度，默认为25
+  #   recursionLimit: 50
+  #   # （可选）代理的最大递归深度，默认为25
+  #   maxRecursionLimit: 100
+  #   # （可选）禁用代理的构建器界面
+  #   disableBuilder: false
+  #   # （可选）所有用户可用的代理功能。省略你希望排除的功能。默认为以下列表。
+  #   capabilities: ["execute_code", "file_search", "actions", "tools"]
+  custom:
+    - name: 'ApiYI-OpenAI'
+      apiKey: 'xxxx'
+      baseURL: 'https://vip.apiyi.com/v1'
+      models:
+        default:
+          [
+            'claude-3-7-sonnet-20250219-thinking',
+            'claude-3-5-sonnet-20241022',
+            'claude-3-5-haiku-20241022',
+            'gpt-4.5-preview-2025-02-27',
+            'gpt-4.5-preview',
+            'gpt-4o-mini',
+            'gpt-4o',
+            'deepseek-reasoner',
+            'deepseek-v3-250324',
+          ]
+        fetch: false
+      titleConvo: true
+      titleModel: 'gpt-3.5-turbo'
+      modelDisplayLabel: 'ApiYI-OpenAI'
+    # # Groq示例
+    # - name: 'groq'
+    #   apiKey: '${GROQ_API_KEY}'
+    #   baseURL: 'https://api.groq.com/openai/v1/'
+    #   models:
+    #     default:
+    #       [
+    #         'llama3-70b-8192',
+    #         'llama3-8b-8192',
+    #         'llama2-70b-4096',
+    #         'mixtral-8x7b-32768',
+    #         'gemma-7b-it',
+    #       ]
+    #     fetch: false
+    #   titleConvo: true
+    #   titleModel: 'mixtral-8x7b-32768'
+    #   modelDisplayLabel: 'groq'
+
+    # # Mistral AI示例
+    # - name: 'Mistral' # 端点的唯一名称
+    #   # 对于`apiKey`和`baseURL`，你可以使用你定义的环境变量。
+    #   # 推荐的环境变量:
+    #   apiKey: '${MISTRAL_API_KEY}'
+    #   baseURL: 'https://api.mistral.ai/v1'
+
+    #   # 模型配置
+    #   models:
+    #     # 要使用的默认模型列表。至少需要一个值。
+    #     default: ['mistral-tiny', 'mistral-small', 'mistral-medium']
+    #     # 获取选项：设置为true以从API获取模型。
+    #     fetch: true # 默认为false。
+
+    #   # 可选配置
+
+    #   # 对话标题设置
+    #   titleConvo: true # 设置为true以启用对话标题
+
+    #   # 标题方法：在"completion"或"functions"之间选择。
+    #   # titleMethod: "completion"  # 如果省略，默认为"completion"。
+
+    #   # 标题模型：指定用于标题的模型。
+    #   titleModel: 'mistral-tiny' # 如果省略，默认为"gpt-3.5-turbo"。
+
+    #   # 摘要设置：设置为true以启用摘要。
+    #   # summarize: false
+
+    #   # 摘要模型：如果启用摘要，指定要使用的模型。
+    #   # summaryModel: "mistral-tiny"  # 如果省略，默认为"gpt-3.5-turbo"。
+
+    #   # 强制提示设置：如果为true，发送`prompt`参数而不是`messages`。
+    #   # forcePrompt: false
+
+    #   # 消息中显示的AI模型标签。
+    #   modelDisplayLabel: 'Mistral' # 未设置时默认为"AI"。
+
+    #   # 向请求添加其他参数。默认参数将被覆盖。
+    #   # addParams:
+    #   # safe_prompt: true # 这个字段是Mistral AI特有的：https://docs.mistral.ai/api/
+
+    #   # 从请求中删除默认参数。查看下面链接的指南中的默认参数。
+    #   # 注意：对于Mistral，必须删除以下参数，否则会遇到422错误：
+    #   dropParams: ['stop', 'user', 'frequency_penalty', 'presence_penalty']
+
+    # # OpenRouter示例
+    # - name: 'OpenRouter'
+    #   # 对于`apiKey`和`baseURL`，你可以使用你定义的环境变量。
+    #   # 推荐的环境变量:
+    #   apiKey: '${OPENROUTER_KEY}'
+    #   baseURL: 'https://openrouter.ai/api/v1'
+    #   models:
+    #     default: ['meta-llama/llama-3-70b-instruct']
+    #     fetch: true
+    #   titleConvo: true
+    #   titleModel: 'meta-llama/llama-3-70b-instruct'
+    #   # 推荐：从请求中删除stop参数，因为Openrouter模型使用各种停止标记。
+    #   dropParams: ['stop']
+    #   modelDisplayLabel: 'OpenRouter'
+
+    # # Portkey AI示例
+    # - name: "Portkey"
+    #   apiKey: "dummy"
+    #   baseURL: 'https://api.portkey.ai/v1'
+    #   headers:
+    #       x-portkey-api-key: '${PORTKEY_API_KEY}'
+    #       x-portkey-virtual-key: '${PORTKEY_OPENAI_VIRTUAL_KEY}'
+    #   models:
+    #       default: ['gpt-4o-mini', 'gpt-4o', 'chatgpt-4o-latest']
+    #       fetch: true
+    #   titleConvo: true
+    #   titleModel: 'current_model'
+    #   summarize: false
+    #   summaryModel: 'current_model'
+    #   forcePrompt: false
+    #   modelDisplayLabel: 'Portkey'
+    #   iconURL: https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/rjqy7ghvjoiu4cd1xjbf
+# 文件配置
+# fileConfig:
+#   endpoints:
+#     assistants:
+#       fileLimit: 5
+#       fileSizeLimit: 10  # 单个文件的最大大小（MB）
+#       totalSizeLimit: 50  # 单个请求中所有文件的最大总大小（MB）
+#       supportedMimeTypes:
+#         - "image/.*"
+#         - "application/pdf"
+#     openAI:
+#       disabled: true  # 禁用向OpenAI端点上传文件
+#     default:
+#       totalSizeLimit: 20
+#     YourCustomEndpointName:
+#       fileLimit: 2
+#       fileSizeLimit: 5
+#   serverFileSizeLimit: 100  # 全局服务器文件大小限制（MB）
+#   avatarSizeLimit: 2  # 用户头像图片大小限制（MB）
+# # 有关Assistants配置的更多信息，请参阅自定义配置指南：
+# # https://www.librechat.ai/docs/configuration/librechat_yaml/object_structure/assistants_endpoint
