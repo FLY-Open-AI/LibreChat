@@ -177,7 +177,7 @@ endpoints:
   #   capabilities: ["execute_code", "file_search", "actions", "tools"]
   custom:
     - name: 'ApiYI-OpenAI'
-      apiKey: 'xxxx'
+      apiKey: 'sk-W0xGDgnF79vvAEEV0217F8Aa90894b7691B1911c863e7956'
       baseURL: 'https://vip.apiyi.com/v1'
       models:
         default:
