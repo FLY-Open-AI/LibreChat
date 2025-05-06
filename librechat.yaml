@@ -177,7 +177,7 @@ endpoints:
   #   capabilities: ["execute_code", "file_search", "actions", "tools"]
   custom:
     - name: 'ApiYI-OpenAI'
-      apiKey: 'sk-W0xGDgnF79vvAEEV0217F8Aa90894b7691B1911c863e7956'
+      apiKey: 'XXX'
       baseURL: 'https://vip.apiyi.com/v1'
       models:
         default:
@@ -191,6 +191,11 @@ endpoints:
             'gpt-4o',
             'deepseek-reasoner',
             'deepseek-v3-250324',
+            'gpt-4o-image',
+            'gpt-4o-image-vip',
+            'mj_relax_imagine',
+            'mj_fast_imagine',
+            ''
           ]
         fetch: false
       titleConvo: true
